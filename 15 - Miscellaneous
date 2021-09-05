@@ -1,0 +1,6 @@
+miscellaneous (class = 15): vanilla has 102 60+ items, and 4 63+, including 1 70 - lots of loot tokens and mounts. TBC items start at 60. Also, AC DB has lots of misalocated items that are in wrong categories here.
+  - junk (subclass = 0): vanilla ends at 65, but the item in question isn't in AC DB. TBC starts at 60, index breakpoint seems to be 24242. 
+  - reagent (subclass = 1): 5 x ilvl 60 vanilla reagents, highest index id is 21177. TBC reagents start at 70 (only 3 as they were mosrtly phased out anyway.)
+  - pet (subclass = 2): leaving this class alone as they are sold in the CC store.
+  - holiday (subclass = 3): skipping.
+  - other (subclass = 4): vanilla goes to 60, with 1 70 (Adamantite Arrow Maker 20475)
