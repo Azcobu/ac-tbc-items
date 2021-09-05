@@ -1,0 +1,1 @@
+- reagent (class = 5) - vanlla items go up to 60, but highest id is symbol of kings, 21177. TBC reagents are all 70+, and there's only 3 anyway.
