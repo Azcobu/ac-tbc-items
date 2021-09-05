@@ -361,6 +361,13 @@
 
 - ### Food & Drink (subclass = 5)
     Tons of TBC food added across all level ranges. Meanwhile classic food goes up to ilvl 65 and has required player lvl of 55. Highest classic item id is 22895. The TBC lvl 65 food all seemed comfortably higher than this id.
+  
+    ```SQL
+    SELECT it.entry, it.name,it.ItemLevel, it.RequiredLevel
+    FROM `item_template` it
+    WHERE it.class = 0 AND it.subclass = 5
+    AND it.itemlevel >= 60 AND it.entry > 23000
+    ```
  
   <details>
   <summary>Results</summary>
