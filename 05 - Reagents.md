@@ -1,1 +1,3 @@
-- reagent (class = 5) - vanlla items go up to 60, but highest id is symbol of kings, 21177. TBC reagents are all 70+, and there's only 3 anyway.
+### Reagent (class = 5)
+
+The AC database categorises these itesm differently to Wowhead, so on AC almost all are classed as Micellaneous (class 15) -> Reagents (subclass 1). As a result there are no relevant items in this category.
