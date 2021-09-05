@@ -1,0 +1,1 @@
+- quivers (class = 11): vanilla quivers go up to ilvl 75 (Ancient Sinew Wrapped Lamina 18714) and 2 x ilvl 60s. TBC quivers start at ilvl 70, but have indices in the 29K range. So item ID breakpoint works:
