@@ -1,6 +1,3 @@
-# ac-tbc-items
-Listing all prematurely available TBC/WotLK items
-
 
 
 ## Consumeables (Class = 0)
