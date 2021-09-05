@@ -323,12 +323,12 @@
  - ### Scroll (subclass = 4)
     Classic scrolls go up to ilvl 65, agility/strength IV. highest item id is 10310. >= 70 works though, lv V scrolls from TBC start there. The scrolls on AC all have different item levels to those on Wowhead, for example Scroll of Agility IV which is ilvl 50 on AC and ilvl 65 on TBC Wowhead. Setting the cutoff point to level V scrolls and above gives us:
  
-  ```SQL
-  SELECT it.entry, it.name,it.ItemLevel, it.RequiredLevel
-  FROM `item_template` it
-  WHERE it.class = 0 AND it.subclass = 4
-  AND it.itemlevel >= 60 
-  ```
+    ```SQL
+    SELECT it.entry, it.name,it.ItemLevel, it.RequiredLevel
+    FROM `item_template` it
+    WHERE it.class = 0 AND it.subclass = 4
+    AND it.itemlevel >= 60 
+    ```
  
   <details>
   <summary>Results</summary>
@@ -372,8 +372,7 @@
 - ### Food & Drink (subclass = 5)
     Tons of TBC food added across all level ranges. Meanwhile classic food goes up to ilvl 65 and has required player lvl of 55. Highest classic item id is 22895. The TBC lvl 65 food all seemed comfortably higher than this id.
  
- 
- <details>
+  <details>
   <summary>Results</summary>
   
   ---
