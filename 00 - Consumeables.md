@@ -6,9 +6,9 @@
   * [Flasks (subclass = 3)](#flasks--subclass---3-)
   * [Scroll (subclass = 4)](#scroll--subclass---4-)
   * [Food & Drink (subclass = 5)](#food---drink--subclass---5-)
-  * [Item Enhancement (subclass = 6):](#item-enhancement--subclass---6--)
-  * [Bandages (subclass = 7):](#bandages--subclass---7--)
-  * [Other (subclass = 8):](#other--subclass---8--)
+  * [Item Enhancement (subclass = 6)](#item-enhancement--subclass---6--)
+  * [Bandages (subclass = 7)](#bandages--subclass---7--)
+  * [Other (subclass = 8)](#other--subclass---8--)
 
 - ### Consumable (subclass = 0)
   There are lots of ilvl 60 classic items, and lots more TBC items that have no ilvl. Highest ID for classic 65 items is 23796 for perm. swift. of sheen. However, some overlap - Fel Blossoms are ilvl 65 with item id 22795. Only 3 vanilla items > 60 though, and they may not even be in game. So cutoff >= 61 + manually adding 58-60 TBC items works. 
@@ -573,15 +573,401 @@
 - ### Item Enhancement (subclass = 6): 
     - TEMPORARY - only vanilla items at 60 are elemental sharpening stone 18262 and 2 rogue poisons, instant poison VI  and Deadly Poison V id 20844. There are 3 TBC items at 60, lowest id is fel sharpening stone id 23528.
     - PERMANENT: lots of ilvl 60 vanilla enhances, but none higher, and only 1 ilvl 60 TBC item, knothide armor kit 25650
-    - summation: >= 61 plus knothide armor kit, fel sharpening stone, comfortable insoles, fel weightstone
+    - summation: >= 61 plus knothide armor kit 25650, fel sharpening stone 23528, comfortable insoles 25679, fel weightstone 28420.
+ 
+   ```SQL
+   SELECT it.entry , it.name,it.ItemLevel, it.RequiredLevel
+   FROM `item_template` it
+   WHERE it.class = 0 AND it.subclass = 6
+   AND it.itemlevel >= 61
+   ```
+ 
+  <details>
+  <summary>Results</summary>
+
+  | entry | name | ItemLevel | RequiredLevel | 
+  | ---: | --- | ---: | ---: | 
+  | 23530 | Felsteel Shield Spike | 70 | 0 | 
+  | 24273 | Mystic Spellthread | 67 | 50 | 
+  | 24274 | Runic Spellthread | 75 | 60 | 
+  | 24275 | Silver Spellthread | 67 | 50 | 
+  | 24276 | Golden Spellthread | 75 | 60 | 
+  | 25651 | Vindicator's Armor Kit | 65 | 55 | 
+  | 25652 | Magister's Armor Kit | 65 | 55 | 
+  | 29483 | Shadow Armor Kit | 68 | 65 | 
+  | 29485 | Flame Armor Kit | 68 | 65 | 
+  | 29486 | Frost Armor Kit | 68 | 65 | 
+  | 29487 | Nature Armor Kit | 68 | 65 | 
+  | 29488 | Arcane Armor Kit | 68 | 65 | 
+  | 29533 | Cobrahide Leg Armor | 67 | 50 | 
+  | 29534 | Clefthide Leg Armor | 67 | 50 | 
+  | 29535 | Nethercobra Leg Armor | 73 | 60 | 
+  | 29536 | Nethercleft Leg Armor | 73 | 60 | 
+  | 33185 | Adamantite Weapon Chain | 63 | 50 | 
+  | 34207 | Glove Reinforcements | 70 | 60 | 
+  | 34330 | Heavy Knothide Armor Kit | 70 | 60 | 
+  | 34836 | Spun Truesilver Fishing Line | 70 | 0 | 
+  | 37603 | Scroll of Enchant Boots - Dexterity | 68 | 0 | 
+  | 38371 | Jormungar Leg Armor | 77 | 70 | 
+  | 38372 | Nerubian Leg Armor | 77 | 70 | 
+  | 38373 | Frosthide Leg Armor | 80 | 80 | 
+  | 38374 | Icescale Leg Armor | 80 | 80 | 
+  | 38375 | Borean Armor Kit | 80 | 70 | 
+  | 38376 | Heavy Borean Armor Kit | 80 | 70 | 
+  | 38377 | Dragonscale Leg Armor | 80 | 70 | 
+  | 38378 | Wyrmscale Leg Armor | 80 | 70 | 
+  | 38865 | Scroll of Enchant Chest - Greater Stats | 62 | 0 | 
+  | 38871 | Scroll of Enchant Weapon - Lifestealing | 62 | 0 | 
+  | 38873 | Scroll of Enchant Weapon - Crusader | 61 | 0 | 
+  | 38874 | Scroll of Enchant 2H Weapon - Major Spirit | 62 | 0 | 
+  | 38882 | Scroll of Enchant Bracer - Healing Power | 64 | 0 | 
+  | 38883 | Scroll of Enchant Weapon - Mighty Spirit | 66 | 0 | 
+  | 38884 | Scroll of Enchant Weapon - Mighty Intellect | 70 | 0 | 
+  | 38885 | Scroll of Enchant Gloves - Threat | 70 | 0 | 
+  | 38886 | Scroll of Enchant Gloves - Shadow Power | 70 | 0 | 
+  | 38887 | Scroll of Enchant Gloves - Frost Power | 70 | 0 | 
+  | 38888 | Scroll of Enchant Gloves - Fire Power | 70 | 0 | 
+  | 38889 | Scroll of Enchant Gloves - Healing Power | 70 | 0 | 
+  | 38890 | Scroll of Enchant Gloves - Superior Agility | 70 | 0 | 
+  | 38891 | Scroll of Enchant Cloak - Greater Fire Resistance | 70 | 0 | 
+  | 38892 | Scroll of Enchant Cloak - Greater Nature Resistance | 70 | 0 | 
+  | 38893 | Scroll of Enchant Cloak - Stealth | 70 | 0 | 
+  | 38894 | Scroll of Enchant Cloak - Subtlety | 70 | 0 | 
+  | 38895 | Scroll of Enchant Cloak - Dodge | 70 | 0 | 
+  | 38897 | Scroll of Enchant Bracer - Brawn | 61 | 0 | 
+  | 38898 | Scroll of Enchant Bracer - Stats | 63 | 0 | 
+  | 38899 | Scroll of Enchant Bracer - Major Defense | 64 | 0 | 
+  | 38900 | Scroll of Enchant Bracer - Superior Healing | 65 | 0 | 
+  | 38901 | Scroll of Enchant Bracer - Restore Mana Prime | 67 | 0 | 
+  | 38902 | Scroll of Enchant Bracer - Fortitude | 70 | 0 | 
+  | 38903 | Scroll of Enchant Bracer - Spellpower | 72 | 0 | 
+  | 38904 | Scroll of Enchant Shield - Tough Shield | 62 | 0 | 
+  | 38905 | Scroll of Enchant Shield - Intellect | 65 | 0 | 
+  | 38906 | Scroll of Enchant Shield - Shield Block | 68 | 0 | 
+  | 38907 | Scroll of Enchant Shield - Resistance | 72 | 0 | 
+  | 38908 | Scroll of Enchant Boots - Vitality | 61 | 0 | 
+  | 38909 | Scroll of Enchant Boots - Fortitude | 64 | 0 | 
+  | 38910 | Scroll of Enchant Boots - Surefooted | 74 | 0 | 
+  | 38911 | Scroll of Enchant Chest - Exceptional Health | 63 | 0 | 
+  | 38912 | Scroll of Enchant Chest - Exceptional Mana | 71 | 0 | 
+  | 38913 | Scroll of Enchant Chest - Exceptional Stats | 69 | 0 | 
+  | 38914 | Scroll of Enchant Cloak - Major Armor | 62 | 0 | 
+  | 38915 | Scroll of Enchant Cloak - Major Resistance | 66 | 0 | 
+  | 38917 | Scroll of Enchant Weapon - Major Striking | 68 | 0 | 
+  | 38918 | Scroll of Enchant Weapon - Major Intellect | 68 | 0 | 
+  | 38919 | Scroll of Enchant 2H Weapon - Savagery | 70 | 0 | 
+  | 38920 | Scroll of Enchant Weapon - Potency | 70 | 0 | 
+  | 38921 | Scroll of Enchant Weapon - Major Spellpower | 70 | 0 | 
+  | 38922 | Scroll of Enchant 2H Weapon - Major Agility | 72 | 0 | 
+  | 38923 | Scroll of Enchant Weapon - Sunfire | 75 | 0 | 
+  | 38924 | Scroll of Enchant Weapon - Soulfrost | 75 | 0 | 
+  | 38925 | Scroll of Enchant Weapon - Mongoose | 75 | 0 | 
+  | 38926 | Scroll of Enchant Weapon - Spellsurge | 72 | 0 | 
+  | 38927 | Scroll of Enchant Weapon - Battlemaster | 72 | 0 | 
+  | 38928 | Scroll of Enchant Chest - Major Spirit | 64 | 0 | 
+  | 38930 | Scroll of Enchant Chest - Major Resilience | 69 | 0 | 
+  | 38931 | Scroll of Enchant Gloves - Blasting | 61 | 0 | 
+  | 38932 | Scroll of Enchant Gloves - Precise Strikes | 72 | 0 | 
+  | 38933 | Scroll of Enchant Gloves - Major Strength | 68 | 0 | 
+  | 38934 | Scroll of Enchant Gloves - Assault | 62 | 0 | 
+  | 38935 | Scroll of Enchant Gloves - Major Spellpower | 72 | 0 | 
+  | 38936 | Scroll of Enchant Gloves - Major Healing | 70 | 0 | 
+  | 38937 | Scroll of Enchant Bracer - Major Intellect | 61 | 0 | 
+  | 38939 | Scroll of Enchant Cloak - Spell Penetration | 65 | 0 | 
+  | 38940 | Scroll of Enchant Cloak - Greater Agility | 62 | 0 | 
+  | 38941 | Scroll of Enchant Cloak - Greater Arcane Resistance | 70 | 0 | 
+  | 38942 | Scroll of Enchant Cloak - Greater Shadow Resistance | 70 | 0 | 
+  | 38943 | Scroll of Enchant Boots - Cat's Swiftness | 72 | 0 | 
+  | 38944 | Scroll of Enchant Boots - Boar's Speed | 72 | 0 | 
+  | 38945 | Scroll of Enchant Shield - Major Stamina | 65 | 0 | 
+  | 38946 | Scroll of Enchant Weapon - Major Healing | 70 | 0 | 
+  | 38947 | Scroll of Enchant Weapon - Greater Agility | 70 | 0 | 
+  | 38948 | Scroll of Enchant Weapon - Executioner | 75 | 0 | 
+  | 38949 | Scroll of Enchant Shield - Resilience | 66 | 0 | 
+  | 38950 | Scroll of Enchant Cloak - Superior Frost Resistance | 80 | 0 | 
+  | 38951 | Scroll of Enchant Gloves - Expertise | 73 | 0 | 
+  | 38953 | Scroll of Enchant Gloves - Precision | 77 | 0 | 
+  | 38954 | Scroll of Enchant Shield - Defense | 71 | 0 | 
+  | 38955 | Scroll of Enchant Chest - Mighty Health | 79 | 0 | 
+  | 38956 | Scroll of Enchant Cloak - Superior Nature Resistance | 80 | 0 | 
+  | 38957 | Scroll of Enchant Weapon - Exceptional Striking | 72 | 0 | 
+  | 38958 | Scroll of Enchant Weapon - Exceptional Intellect | 80 | 0 | 
+  | 38959 | Scroll of Enchant Cloak - Superior Agility | 80 | 0 | 
+  | 38960 | Scroll of Enchant Gloves - Gatherer | 75 | 0 | 
+  | 38961 | Scroll of Enchant Boots - Greater Spirit | 71 | 0 | 
+  | 38962 | Scroll of Enchant Chest - Greater Mana Restoration | 75 | 0 | 
+  | 38963 | Scroll of Enchant Weapon - Exceptional Spirit | 80 | 0 | 
+  | 38964 | Scroll of Enchant Gloves - Greater Assault | 84 | 0 | 
+  | 38965 | Scroll of Enchant Weapon - Icebreaker | 84 | 0 | 
+  | 38966 | Scroll of Enchant Boots - Greater Fortitude | 75 | 0 | 
+  | 38967 | Scroll of Enchant Gloves - Major Agility | 85 | 0 | 
+  | 38968 | Scroll of Enchant Bracers - Exceptional Intellect | 75 | 0 | 
+  | 38969 | Scroll of Enchant Cloak - Superior Fire Resistance | 80 | 0 | 
+  | 38970 | Scroll of Enchant Gloves - Exceptional Healing | 85 | 0 | 
+  | 38971 | Scroll of Enchant Bracers - Striking | 71 | 0 | 
+  | 38972 | Scroll of Enchant Weapon - Lifeward | 85 | 0 | 
+  | 38973 | Scroll of Enchant Cloak - Spell Piercing | 79 | 0 | 
+  | 38974 | Scroll of Enchant Boots - Greater Vitality | 73 | 0 | 
+  | 38975 | Scroll of Enchant Chest - Exceptional Resilience | 82 | 0 | 
+  | 38976 | Scroll of Enchant Boots - Superior Agility | 82 | 0 | 
+  | 38977 | Scroll of Enchant Cloak - Superior Shadow Resistance | 80 | 0 | 
+  | 38978 | Scroll of Enchant Cloak - Titanweave | 85 | 0 | 
+  | 38979 | Scroll of Enchant Gloves - Exceptional Spellpower | 85 | 0 | 
+  | 38980 | Scroll of Enchant Bracers - Major Spirit | 80 | 0 | 
+  | 38981 | Scroll of Enchant 2H Weapon - Scourgebane | 80 | 0 | 
+  | 38982 | Scroll of Enchant Cloak - Superior Arcane Resistance | 80 | 0 | 
+  | 38983 | Scroll of Enchant Shield - Exceptional Stamina | 81 | 0 | 
+  | 38984 | Scroll of Enchant Bracer - Expertise | 84 | 0 | 
+  | 38985 | Scroll of Enchant Gloves - Greater Blasting | 82 | 0 | 
+  | 38986 | Scroll of Enchant Boots - Icewalker | 85 | 0 | 
+  | 38987 | Scroll of Enchant Bracers - Greater Stats | 80 | 0 | 
+  | 38988 | Scroll of Enchant Weapon - Giant Slayer | 82 | 0 | 
+  | 38989 | Scroll of Enchant Chest - Super Stats | 85 | 0 | 
+  | 38990 | Scroll of Enchant Gloves - Armsman | 85 | 0 | 
+  | 38991 | Scroll of Enchant Weapon - Exceptional Spellpower | 85 | 0 | 
+  | 38992 | Scroll of Enchant 2H Weapon - Greater Savagery | 82 | 0 | 
+  | 38993 | Scroll of Enchant Cloak - Shadow Armor | 85 | 0 | 
+  | 38994 | Scroll of Enchant Weapon - Exceptional Healing | 85 | 0 | 
+  | 38995 | Scroll of Enchant Weapon - Exceptional Agility | 84 | 0 | 
+  | 38996 | Scroll of Enchant Bracers - Major Healing | 85 | 0 | 
+  | 38997 | Scroll of Enchant Bracers - Greater Spellpower | 85 | 0 | 
+  | 38998 | Scroll of Enchant Weapon - Deathfrost | 73 | 0 | 
+  | 38999 | Scroll of Enchant Chest - Defense | 72 | 0 | 
+  | 39000 | Scroll of Enchant Cloak - Steelweave | 75 | 0 | 
+  | 39001 | Scroll of Enchant Cloak - Mighty Armor | 71 | 0 | 
+  | 39002 | Scroll of Enchant Chest - Greater Defense | 80 | 0 | 
+  | 39003 | Scroll of Enchant Cloak - Greater Speed | 85 | 0 | 
+  | 39004 | Scroll of Enchant Cloak - Wisdom | 85 | 0 | 
+  | 39005 | Scroll of Enchant Chest - Super Health | 85 | 0 | 
+  | 39006 | Scroll of Enchant Boots - Tuskarr's Vitality | 85 | 0 | 
+  | 40776 | Personal Electromagnetic Pulse Generator | 75 | 0 | 
+  | 41091 | Hand-Mounted Pyro Rocket | 75 | 0 | 
+  | 41093 | Hyperspeed Accelerators | 75 | 0 | 
+  | 41111 | Flexweave Underlay | 75 | 0 | 
+  | 41118 | Nitro Boosts | 75 | 0 | 
+  | 41601 | Shining Spellthread | 80 | 70 | 
+  | 41602 | Brilliant Spellthread | 80 | 70 | 
+  | 41603 | Azure Spellthread | 80 | 70 | 
+  | 41604 | Sapphire Spellthread | 80 | 70 | 
+  | 41605 | zzDEPRECATED Sanctified Spellthread | 80 | 70 | 
+  | 41606 | zzDEPRECATED Master's Spellthread | 80 | 70 | 
+  | 41611 | Eternal Belt Buckle | 80 | 70 | 
+  | 41976 | Titanium Weapon Chain | 80 | 70 | 
+  | 42500 | Titanium Shield Spike | 80 | 70 | 
+  | 43097 | Fur Lining - Attack Power | 85 | 0 | 
+  | 43987 | Scroll of Enchant Weapon - Black Magic | 85 | 0 | 
+  | 44449 | Scroll of Enchant Boots - Assault | 71 | 0 | 
+  | 44453 | Scroll of Enchant Weapon - Greater Potency | 71 | 0 | 
+  | 44455 | Scroll of Enchant Shield - Greater Intellect | 75 | 0 | 
+  | 44456 | Scroll of Enchant Cloak - Speed | 75 | 0 | 
+  | 44457 | Scroll of Enchant Cloak - Major Agility | 75 | 0 | 
+  | 44458 | Scroll of Enchant Gloves - Crusher | 85 | 0 | 
+  | 44463 | Scroll of Enchant 2H Weapon - Massacre | 79 | 0 | 
+  | 44465 | Scroll of Enchant Chest - Powerful Stats | 79 | 0 | 
+  | 44466 | Scroll of Enchant Weapon - Superior Potency | 79 | 0 | 
+  | 44467 | Scroll of Enchant Weapon - Mighty Spellpower | 85 | 0 | 
+  | 44469 | Scroll of Enchant Boots - Greater Assault | 72 | 0 | 
+  | 44470 | Scroll of Enchant Bracer - Superior Spellpower | 71 | 0 | 
+  | 44493 | Scroll of Enchant Weapon - Berserking | 79 | 0 | 
+  | 44497 | Scroll of Enchant Weapon - Accuracy | 73 | 0 | 
+  | 44815 | Scroll of Enchant Bracers - Greater Assault | 71 | 0 | 
+  | 44936 | Titanium Plating | 80 | 70 | 
+  | 44946 | Scroll of Enchant Weapon - Titanguard | 80 | 0 | 
+  | 44947 | Scroll of Enchant Bracer - Major Stamina | 80 | 0 | 
+  | 44963 | Earthen Leg Armor | 80 | 80 | 
+  | 45056 | Scroll of Enchant Staff - Greater Spellpower | 85 | 0 | 
+  | 45060 | Scroll of Enchant Staff - Spellpower | 80 | 0 | 
+  | 46026 | Scroll of Enchant Weapon - Blade Ward | 80 | 0 | 
+  | 46098 | Scroll of Enchant Weapon - Blood Draining | 80 | 0 | 
+  | 50816 | Scroll of Enchant Gloves - Angler | 70 | 0 | 
+
+  </details>
+ 
+23530, 24273, 24274, 24275, 24276, 25651, 25652, 29483, 29485, 29486, 29487, 29488, 29533, 29534, 29535, 29536, 33185, 34207, 34330, 34836, 37603, 38371, 38372, 38373, 38374, 38375, 38376, 38377, 38378, 38865, 38871, 38873, 38874, 38882, 38883, 38884, 38885, 38886, 38887, 38888, 38889, 38890, 38891, 38892, 38893, 38894, 38895, 38897, 38898, 38899, 38900, 38901, 38902, 38903, 38904, 38905, 38906, 38907, 38908, 38909, 38910, 38911, 38912, 38913, 38914, 38915, 38917, 38918, 38919, 38920, 38921, 38922, 38923, 38924, 38925, 38926, 38927, 38928, 38930, 38931, 38932, 38933, 38934, 38935, 38936, 38937, 38939, 38940, 38941, 38942, 38943, 38944, 38945, 38946, 38947, 38948, 38949, 38950, 38951, 38953, 38954, 38955, 38956, 38957, 38958, 38959, 38960, 38961, 38962, 38963, 38964, 38965, 38966, 38967, 38968, 38969, 38970, 38971, 38972, 38973, 38974, 38975, 38976, 38977, 38978, 38979, 38980, 38981, 38982, 38983, 38984, 38985, 38986, 38987, 38988, 38989, 38990, 38991, 38992, 38993, 38994, 38995, 38996, 38997, 38998, 38999, 39000, 39001, 39002, 39003, 39004, 39005, 39006, 40776, 41091, 41093, 41111, 41118, 41601, 41602, 41603, 41604, 41605, 41606, 41611, 41976, 42500, 43097, 43987, 44449, 44453, 44455, 44456, 44457, 44458, 44463, 44465, 44466, 44467, 44469, 44470, 44493, 44497, 44815, 44936, 44946, 44947, 44963, 45056, 45060, 46026, 46098, 50816, 25650, 23528, 25679, 28420 
 
 <hr>
 
 - ### Bandages (subclass = 7): 
   1 vanilla 60 item, crystal infused bandage, probably not obtainable. >= 64 catches all TBC.
+ 
+  ```SQL
+  SELECT it.entry , it.name,it.ItemLevel, it.RequiredLevel
+  FROM `item_template` it
+  WHERE it.class = 0 AND it.subclass = 7
+  AND it.itemlevel >= 64 
+  ```
+ 
+ <details>
+<summary>Results</summary>
+
+  item_template
+---
+| entry | name | ItemLevel | RequiredLevel | 
+| ---: | --- | ---: | ---: | 
+| 21990 | Netherweave Bandage | 64 | 0 | 
+| 21991 | Heavy Netherweave Bandage | 70 | 0 | 
+| 34721 | Frostweave Bandage | 71 | 0 | 
+| 34722 | Heavy Frostweave Bandage | 80 | 0 | 
+| 38640 | Dense Frostweave Bandage | 85 | 0 | 
+| 38643 | Thick Frostweave Bandage | 75 | 0 | 
+
+</details>
+ 
+  21990, 21991, 34721, 34722, 38640, 38643
 
 <hr>
 
 - ### Other (subclass = 8): 
-  highest vanilla is 58, lowest TBC is 60, so >= 60 works fine here.
+  highest vanilla is 60 with highest index 20844 (deadly poison v), lowest TBC is 60, so >= 60 and index > 20844 works here.
+ 
+  ```SQL
+  SELECT it.entry, it.name,it.ItemLevel, it.RequiredLevel
+  FROM `item_template` it
+  WHERE it.class = 0 AND it.subclass = 8
+  AND it.itemlevel >= 60 AND it.entry > 20844
+  ```
+ 
+ <details>
+  <summary>Results</summary>
+
+  ---
+  | entry | name | ItemLevel | RequiredLevel | 
+  | ---: | --- | ---: | ---: | 
+  | 21835 | Anesthetic Poison | 68 | 68 | 
+  | 21927 | Instant Poison VII | 68 | 68 | 
+  | 22053 | Deadly Poison VI | 62 | 62 | 
+  | 22054 | Deadly Poison VII | 70 | 70 | 
+  | 22055 | Wound Poison V | 64 | 64 | 
+  | 22103 | Master Healthstone | 70 | 60 | 
+  | 22104 | Master Healthstone | 70 | 60 | 
+  | 22105 | Master Healthstone | 70 | 60 | 
+  | 22521 | Superior Mana Oil | 62 | 52 | 
+  | 22522 | Superior Wizard Oil | 68 | 58 | 
+  | 23528 | Fel Sharpening Stone | 60 | 50 | 
+  | 23529 | Adamantite Sharpening Stone | 70 | 60 | 
+  | 23559 | Lesser Rune of Warding | 65 | 55 | 
+  | 23575 | Lesser Ward of Shielding | 65 | 55 | 
+  | 23576 | Greater Ward of Shielding | 70 | 55 | 
+  | 23862 | Redemption of the Fallen | 70 | 0 | 
+  | 24268 | Netherweave Net | 60 | 0 | 
+  | 24269 | Heavy Netherweave Net | 60 | 0 | 
+  | 25521 | Greater Rune of Warding | 70 | 60 | 
+  | 25679 | Comfortable Insoles | 60 | 0 | 
+  | 28420 | Fel Weightstone | 60 | 50 | 
+  | 28421 | Adamantite Weightstone | 70 | 60 | 
+  | 29528 | Drums of War | 68 | 0 | 
+  | 29529 | Drums of Battle | 73 | 0 | 
+  | 29530 | Drums of Speed | 69 | 0 | 
+  | 29531 | Drums of Restoration | 70 | 0 | 
+  | 29532 | Drums of Panic | 74 | 0 | 
+  | 31437 | Medicinal Drake Essence | 105 | 0 | 
+  | 32839 | Cauldron of Major Arcane Protection | 70 | 60 | 
+  | 32849 | Cauldron of Major Fire Protection | 70 | 60 | 
+  | 32850 | Cauldron of Major Frost Protection | 70 | 60 | 
+  | 32851 | Cauldron of Major Nature Protection | 70 | 60 | 
+  | 32852 | Cauldron of Major Shadow Protection | 70 | 60 | 
+  | 33930 | Amani Charm of the Bloodletter | 70 | 0 | 
+  | 33931 | Amani Charm of Mighty Mojo | 70 | 0 | 
+  | 33932 | Amani Charm of the Witch Doctor | 70 | 0 | 
+  | 33933 | Amani Charm of the Raging Defender | 70 | 0 | 
+  | 34504 | Adamantite Shell Machine | 70 | 0 | 
+  | 34538 | Blessed Weapon Coating | 70 | 70 | 
+  | 34539 | Righteous Weapon Coating | 70 | 70 | 
+  | 35287 | Luminous Bluetail | 70 | 55 | 
+  | 35396 | Enchant 2H Weapon - Major Agility | 70 | 0 | 
+  | 35397 | Enchant 2H Weapon - Savagery | 70 | 0 | 
+  | 35398 | Enchant Boots - Boar's Speed | 70 | 0 | 
+  | 35399 | Enchant Boots - Cat's Swiftness | 70 | 0 | 
+  | 35400 | Enchant Boots - Dexterity | 70 | 0 | 
+  | 35417 | Enchant Boots - Fortitude | 70 | 0 | 
+  | 35418 | Enchant Boots - Surefooted | 70 | 0 | 
+  | 35419 | Enchant Boots - Vitality | 70 | 0 | 
+  | 35420 | Enchant Bracer - Brawn | 70 | 0 | 
+  | 35421 | Enchant Bracer - Fortitude | 70 | 0 | 
+  | 35422 | Enchant Bracer - Major Defense | 70 | 0 | 
+  | 35423 | Enchant Bracer - Major Intellect | 70 | 0 | 
+  | 35424 | Enchant Bracer - Restore Mana Prime | 70 | 0 | 
+  | 35425 | Enchant Bracer - Spellpower | 70 | 0 | 
+  | 35426 | Enchant Bracer - Stats | 70 | 0 | 
+  | 35427 | Enchant Bracer - Superior Healing | 70 | 0 | 
+  | 35428 | Enchant Chest - Exceptional Health | 70 | 0 | 
+  | 35429 | Enchant Chest - Exceptional Stats | 70 | 0 | 
+  | 35430 | Enchant Chest - Major Resilience | 70 | 0 | 
+  | 35431 | Enchant Chest - Major Spirit | 70 | 0 | 
+  | 35432 | Enchant Cloak - Greater Agility | 70 | 0 | 
+  | 35433 | Enchant Cloak - Greater Arcane Resistance | 70 | 0 | 
+  | 35434 | Enchant Cloak - Greater Shadow Resistance | 70 | 0 | 
+  | 35435 | Enchant Cloak - Major Resistance | 70 | 0 | 
+  | 35436 | Enchant Cloak - Spell Penetration | 70 | 0 | 
+  | 35437 | Enchant Cloak - Major Armor | 70 | 0 | 
+  | 35438 | Enchant Gloves - Assault | 70 | 0 | 
+  | 35439 | Enchant Gloves - Blasting | 70 | 0 | 
+  | 35440 | Enchant Gloves - Major Healing | 70 | 0 | 
+  | 35441 | Enchant Gloves - Major Spellpower | 70 | 0 | 
+  | 35442 | Enchant Gloves - Major Strength | 70 | 0 | 
+  | 35443 | Enchant Gloves - Spell Strike | 70 | 0 | 
+  | 35444 | Enchant Ring - Healing Power | 70 | 0 | 
+  | 35445 | Enchant Ring - Spellpower | 70 | 0 | 
+  | 35446 | Enchant Ring - Stats | 70 | 0 | 
+  | 35447 | Enchant Ring - Striking | 70 | 0 | 
+  | 35448 | Enchant Shield - Intellect | 70 | 0 | 
+  | 35449 | Enchant Shield - Major Stamina | 70 | 0 | 
+  | 35450 | Enchant Shield - Resistance | 70 | 0 | 
+  | 35451 | Enchant Shield - Shield Block | 70 | 0 | 
+  | 35452 | Enchant Weapon - Battlemaster | 70 | 0 | 
+  | 35453 | Enchant Weapon - Greater Agility | 70 | 0 | 
+  | 35454 | Enchant Weapon - Major Healing | 70 | 0 | 
+  | 35455 | Enchant Weapon - Major Intellect | 70 | 0 | 
+  | 35456 | Enchant Weapon - Major Spellpower | 70 | 0 | 
+  | 35457 | Enchant Weapon - Major Striking | 70 | 0 | 
+  | 35458 | Enchant Weapon - Mongoose | 70 | 0 | 
+  | 35459 | Enchant Weapon - Potency | 70 | 0 | 
+  | 35460 | Enchant Weapon - Soulfrost | 70 | 0 | 
+  | 35461 | Enchant Weapon - Spellsurge | 70 | 0 | 
+  | 35462 | Enchant Weapon - Sunfire | 70 | 0 | 
+  | 36889 | Demonic Healthstone | 73 | 63 | 
+  | 36890 | Demonic Healthstone | 73 | 63 | 
+  | 36891 | Demonic Healthstone | 73 | 63 | 
+  | 36892 | Fel Healthstone | 79 | 69 | 
+  | 36893 | Fel Healthstone | 79 | 69 | 
+  | 36894 | Fel Healthstone | 79 | 69 | 
+  | 36899 | Exceptional Mana Oil | 80 | 72 | 
+  | 36900 | Exceptional Wizard Oil | 80 | 72 | 
+  | 37464 | Winterfin Horn of Distress | 138 | 0 | 
+  | 39213 | Massive Seaforium Charge | 70 | 0 | 
+  | 39969 | Fire Seed | 75 | 0 | 
+  | 39970 | Fire Leaf | 75 | 0 | 
+  | 40773 | Master Firestone | 66 | 0 | 
+  | 41173 | Fel Firestone | 74 | 0 | 
+  | 41174 | Grand Firestone | 80 | 0 | 
+  | 41193 | Major Spellstone | 60 | 0 | 
+  | 41194 | Master Spellstone | 66 | 0 | 
+  | 41195 | Demonic Spellstone | 72 | 0 | 
+  | 41196 | Grand Spellstone | 78 | 0 | 
+  | 41367 | Dark Jade Focusing Lens | 75 | 0 | 
+  | 41509 | Frostweave Net | 72 | 0 | 
+  | 42420 | Shadow Crystal Focusing Lens | 75 | 0 | 
+  | 42421 | Shadow Jade Focusing Lens | 75 | 0 | 
+  | 42986 | The RP-GG | 70 | 0 | 
+  | 43002 | Inflatable Land Mines | 70 | 0 | 
+  | 43230 | Instant Poison VIII | 73 | 73 | 
+  | 43231 | Instant Poison IX | 79 | 79 | 
+  | 43232 | Deadly Poison VIII | 76 | 76 | 
+  | 43233 | Deadly Poison IX | 80 | 80 | 
+  | 43234 | Wound Poison VI | 72 | 72 | 
+  | 43235 | Wound Poison VII | 78 | 78 | 
+  | 43237 | Anesthetic Poison II | 77 | 77 | 
+  | 43302 | Inscription of High Discipline | 80 | 80 | 
+  | 43303 | Inscription of the Frostblade | 80 | 80 | 
+  | 43304 | Inscription of Kings | 80 | 80 | 
+  | 43853 | Titanium Skeleton Key | 80 | 0 | 
+  | 43854 | Cobalt Skeleton Key | 70 | 0 | 
+  | 44506 | Saronite Arrow Maker | 80 | 0 | 
+  | 44507 | Ultrasafe Bullet Machine | 80 | 0 | 
+  | 49633 | Drums of Forgotten Kings | 75 | 80 | 
+  | 49634 | Drums of the Wild | 75 | 80 | 
+
+  </details>
+ 
+21835, 21927, 22053, 22054, 22055, 22103, 22104, 22105, 22521, 22522, 23528, 23529, 23559, 23575, 23576, 23862, 24268, 24269, 25521, 25679, 28420, 28421, 29528, 29529, 29530, 29531, 29532, 31437, 32839, 32849, 32850, 32851, 32852, 33930, 33931, 33932, 33933, 34504, 34538, 34539, 35287, 35396, 35397, 35398, 35399, 35400, 35417, 35418, 35419, 35420, 35421, 35422, 35423, 35424, 35425, 35426, 35427, 35428, 35429, 35430, 35431, 35432, 35433, 35434, 35435, 35436, 35437, 35438, 35439, 35440, 35441, 35442, 35443, 35444, 35445, 35446, 35447, 35448, 35449, 35450, 35451, 35452, 35453, 35454, 35455, 35456, 35457, 35458, 35459, 35460, 35461, 35462, 36889, 36890, 36891, 36892, 36893, 36894, 36899, 36900, 37464, 39213, 39969, 39970, 40773, 41173, 41174, 41193, 41194, 41195, 41196, 41367, 41509, 42420, 42421, 42986, 43002, 43230, 43231, 43232, 43233, 43234, 43235, 43237, 43302, 43303, 43304, 43853, 43854, 44506, 44507, 49633, 49634
 
