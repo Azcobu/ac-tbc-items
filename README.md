@@ -12,7 +12,7 @@ Status:
 4	 |	Armor |	Old world locations done, wider Outlands still needs checks.
 5	 |	Reagent |	Skipping, nothing to do due to differing categorization.
 6	 |	Projectile |	Done
-7	 |	Trade Goods |	Outline
+7	 |	Trade Goods |	Done
 8	 |	Generic(OBSOLETE) |	Skipping
 9	 |	Recipe |	Outline
 10	 |	Money(OBSOLETE) |	Skipping
