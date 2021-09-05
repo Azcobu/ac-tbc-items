@@ -1,6 +1,15 @@
-
-
 ## Consumeables (Class = 0)
+
+  * [Consumable (subclass = 0)](#consumable--subclass---0-)
+  * [Potion (subclass = 1)](#potion--subclass---1-)
+  * [Elixir (subclass = 2)](#elixir--subclass---2-)
+  * [Flasks (subclass = 3)](#flasks--subclass---3-)
+  * [Scroll (subclass = 4)](#scroll--subclass---4-)
+  * [Food & Drink (subclass = 5)](#food---drink--subclass---5-)
+  * [Item Enhancement (subclass = 6):](#item-enhancement--subclass---6--)
+  * [Bandages (subclass = 7):](#bandages--subclass---7--)
+  * [Other (subclass = 8):](#other--subclass---8--)
+
 - ### Consumable (subclass = 0)
   There are lots of ilvl 60 classic items, and lots more TBC items that have no ilvl. Highest ID for classic 65 items is 23796 for perm. swift. of sheen. However, some overlap - Fel Blossoms are ilvl 65 with item id 22795. Only 3 vanilla items > 60 though, and they may not even be in game. So cutoff >= 61 + manually adding 58-60 TBC items works. 
   List of TBC items 55-60: stouthammer lite 23585, grunt's waterskin 24006, footman's waterskin 24007, brewfest items: should skip (stout shrunken head 34022, Pickled Sausage 33024, Thunderbrew Stout 33033), DMF sells Iced Berry Slush 33234 - mark of honor hold 24579, mark of thrallmar 24581, honor hold favor 24520, thrallmar favor 24522, chronoboon displacer 184937, primal stone statue 25884, supercharged chronoboon displacer 184938, + 4 bombs that are quest items so not really useful anyway.
