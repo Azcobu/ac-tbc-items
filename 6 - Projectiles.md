@@ -1,0 +1,1 @@
+projectiles (class = 6): vanilla projectiles go up to lvl 61. TBC projectiles start at ilvl 80 (wicked arrows/impact shot, lvl 55 req.) - however, as of 2.0, both these were sold in old world. Quick check shows they are already sold by 53 vendors across the old world.
