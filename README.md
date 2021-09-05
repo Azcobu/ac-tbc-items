@@ -10,8 +10,8 @@ Status:
 2	 |	Weapon | Old world locations done, wider Outlands still needs checks.
 3	 |	Gem |	Done
 4	 |	Armor |	Old world locations done, wider Outlands still needs checks.
-5	 |	Reagent |	Outline
-6	 |	Projectile |	Outline
+5	 |	Reagent |	Skipping, nothing to do due to differing categorization.
+6	 |	Projectile |	Done
 7	 |	Trade Goods |	Outline
 8	 |	Generic(OBSOLETE) |	Skipping
 9	 |	Recipe |	Outline
