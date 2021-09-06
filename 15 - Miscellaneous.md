@@ -1,7 +1,7 @@
 
 
 ## Miscellaneous (class = 15)
-	Vanilla has 102 60+ items, and 4 63+, including 1 70 - lots of loot tokens and mounts. TBC items start at 60. Also, AC DB has lots of misallocated items that are in wrong categories here.
+Vanilla has 102 60+ items, and 4 63+, including 1 70 - lots of loot tokens and mounts. TBC items start at 60. Also, AC DB has lots of misallocated items that are in wrong categories here.
 	
   - Junk (subclass = 0)
 	Vanilla ends at 65, but the item in question (stormwind medallion) isn't in the AC DB. TBC starts at 60, index breakpoint seems to be 24242. Also note all the TBC/WotLK raid reward tokens are in this category.
