@@ -6,10 +6,6 @@ Kara - Deadwind Pass NPCs >60 with loot: unliving caretaker/resident, wailing sp
 
 Islw of Q'D NPCs >60 with loot: wretched fiends/devourer/hungerer, irespeaker, unleashed hellion, dawnblade blood knight/hawkrider/marksman/reservist/summoner/charger, darkspine siren/myrmidon, abyssal flamewalker - (24996, 24960, 25047, 24999, 25002, 24976, 24978, 24979, 25063, 25087, 25548, 25073, 25060, 25001)
 
-A general query for all open world map = 530 mobs -> items as a catchall. However, this misses Kara + Q'D and is hugely expensive
-    Vanilla weapons go up to ilvl 100, all with req. lvl 60.
-   TBC items seems ot start around 23300, but old world stuff is still interspersed
-
 All Kara items (115 weapons):
 ```SQL
 SELECT DISTINCT( it.entry), it.name, it.itemlevel, it.RequiredLevel
