@@ -1,19 +1,18 @@
 ### Projectiles (class = 6)
-Vanilla projectiles go up to lvl 61. TBC projectiles start at ilvl 80 (wicked arrows/impact shot, lvl 55 req.) - however, as of 2.0, both these were sold in the old world. Quick check shows they are already sold by 53 vendors across the old world. 
+Vanilla projectiles go up to lvl 61. TBC projectiles start at ilvl 80 (wicked arrows/impact shot, lvl 55 req.) - however, as of 2.0, both these were sold in the old world. Quick check shows they are already sold by 53 vendors across the old world. Staff consensus on Discord appears to be that they should be removed, so modifying query to flag them both as TBC items.
 
-The next TBC ammo is ilvl 97, so easy to define a breakpoint. 
+The next TBC ammo after Wicked/Impact is ilvl 97, so easy to define a breakpoint. 
 
 ```SQL
 SELECT it.entry, it.name,it.ItemLevel, it.RequiredLevel
 FROM `item_template` it
 WHERE it.class = 6
-AND it.ItemLevel >= 97
+AND it.ItemLevel >= 80
 ```
 
 <details>
 <summary>Results</summary>
 
-item_template
 ---
 | entry | name | ItemLevel | RequiredLevel | 
 | ---: | --- | ---: | ---: | 
@@ -21,7 +20,9 @@ item_template
 | 23773 | Adamantite Shells | 118 | 62 | 
 | 24412 | Warden's Arrow | 115 | 62 | 
 | 24417 | Scout's Arrow | 97 | 61 | 
+| 28053 | Wicked Arrow | 80 | 55 | 
 | 28056 | Blackflight Arrow | 118 | 65 | 
+| 28060 | Impact Shot | 80 | 55 | 
 | 28061 | Ironbite Shell | 118 | 65 | 
 | 29885 | Hunter 120 Epic Test Bullets | 120 | 62 | 
 | 30319 | Nether Spike | 175 | 70 | 
@@ -46,9 +47,9 @@ item_template
 
 </details>
 
-This is **without** Wicked Arrows/Impact Shot:
+This is **with** Wicked Arrows/Impact Shot included:
 
-23772, 23773, 24412, 24417, 28056, 28061, 29885, 30319, 30611, 30612, 31735, 31737, 31949, 32760, 32761, 32882, 32883, 33803, 34581, 34582, 41164, 41165, 41584, 41586, 52020, 52021
+23772, 23773, 24412, 24417, 28053, 28056, 28060, 28061, 29885, 30319, 30611, 30612, 31735, 31737, 31949, 32760, 32761, 32882, 32883, 33803, 34581, 34582, 41164, 41165, 41584, 41586, 52020, 52021
 
 
 
